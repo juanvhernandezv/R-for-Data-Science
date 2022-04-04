@@ -1,0 +1,64 @@
+---
+title: "Capitulo 3_ R for Data Science"
+subtitle: "Data Transformation with dplyr"
+author: "Maria y Juan"
+date: "`r format(Sys.Date(),'%e de %B, %Y')`"
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: 4
+  html_document:
+    toc: yes
+    toc_depth: 4
+    df_print: paged
+---
+```{r echo=FALSE}
+library(knitr)
+# Evitamos que el código en el informe salga del margen.
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy=TRUE, 
+                      echo = TRUE, message = FALSE, warning = FALSE, 
+                      comment = NA)
+```
+
+# Introduction
+
+```{r Paquetes, message=FALSE}
+#install.packages("nycflights13")
+library(nycflights13)
+library(tidyverse)
+```
+
+```{r}
+head(flights)
+```
+Esta base de datos es de tipo _tibble_, un tipo de data frame que trabaja mejor con _tidyverse_.
+
+# dplyr Basics
+
+El capitulo se va a enfocar en 5 funciones claves que posee el dplyr:
+
+- Seleccionar observaciones por sus valores **filter()**
+- Reordenar filar **arrange()**
+- Seleccionar variables por su nombre **select()**
+- Crear nuevas variables con funciones sobre variables existentes **mutate()**
+- Colapsar varios valores en un resumen simple **summarize()**
+- Enfocar una función por grupo **group_by**
+
+## filter()
+
+### Filter rows with filter()
+
+filter(
+1. data frame
+2/n Expresiones a utilizar
+)
+
+```{r}
+# Filtramos la base de datos flights, por mes y dia = 1. Si añadimos () se guarda el vector y muestra el resultado 
+(jan1 <- filter(flights, month == 1, day == 1))
+```
+
+### Comparisons
+
+
+
